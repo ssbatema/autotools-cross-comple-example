@@ -29,7 +29,7 @@ jobs:
           name: test
           path: autotools-cross-compile-example_1.0_armhf.snap
 
-      - name: Display structure of downloaded files
+      - name: Run the binary
         run: |
           sudo apt-get update
           sudo apt-get -y install debootstrap qemu-user-static squashfs-tools
