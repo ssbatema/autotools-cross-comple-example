@@ -23,3 +23,22 @@ jobs:
           # plugs: ./plug-declaration.json
           # slots: ./slot-declaration.json
 
+      - name: Archive the build product
+        uses: actions/upload-artifact@v3
+        with:
+          name: test.snap
+          path: |
+            autotools-cross-compile-example_1.0_armhf.snap
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/download-artifact@v3
+      with:
+        name: test.snap
+
+    - name: Display structure of downloaded files
+      run: ls -R
