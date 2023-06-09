@@ -30,4 +30,9 @@ jobs:
           path: autotools-cross-compile-example_1.0_armhf.snap
 
       - name: Display structure of downloaded files
-        run: ls -R
+        run: |
+          sudo apt-get -y install debootstrap qemu-user-static squashfs-tools
+          sudo debootstrap --arch=armhf jammy armhf-jammy
+          unsquashfs autotools-cross-compile-example_1.0_armhf.snap
+          sudo cp squashfs-root/usr/bin/* armhf-jammy/root/
+          sudo chroot armhf-jammy /root/autotools-cross-compile-example
