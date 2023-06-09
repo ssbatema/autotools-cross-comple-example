@@ -31,6 +31,7 @@ jobs:
 
       - name: Display structure of downloaded files
         run: |
+          sudo apt-get update
           sudo apt-get -y install debootstrap qemu-user-static squashfs-tools
           sudo debootstrap --arch=armhf jammy armhf-jammy
           unsquashfs autotools-cross-compile-example_1.0_armhf.snap
