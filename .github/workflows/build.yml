@@ -28,15 +28,3 @@ jobs:
         with:
           name: test
           path: autotools-cross-compile-example_1.0_armhf.snap
-
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Test snap
-      uses: actions/download-artifact@v3
-      with:
-        name: test
-
-    - name: Display structure of downloaded files
-      run: ls -R
