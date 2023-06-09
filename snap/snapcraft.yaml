@@ -1,0 +1,32 @@
+name: autotools-cross-compile-example
+version: "1.0"
+summary: An example snap for an cross-compiled autotools project
+description: |
+  Shows how to create a snap for an application that uses a autotools for
+  cross-compiling and installation.
+
+grade: devel
+base: core22
+confinement: strict
+
+architectures:
+  - build-on: [amd64, armhf]
+    build-for: armhf
+
+apps:
+  # Using the name of the snap as the key name allows the program to be invoked by its name.
+  autotools-cross-compile-example:
+    command: usr/bin/autotools-cross-compile-example
+
+parts:
+  hello:
+    plugin: autotools
+    source: .
+    autotools-configure-parameters:
+      - --prefix=/usr
+      - --host=${SNAPCRAFT_ARCH_TRIPLET}
+    build-packages:
+      - on amd64 to armhf:
+        - gcc-arm-linux-gnueabihf:amd64
+        - libc6-dev-armhf-cross:amd64
+        - libc6-armhf-cross:amd64
