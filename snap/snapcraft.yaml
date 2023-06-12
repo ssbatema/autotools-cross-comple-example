@@ -20,7 +20,7 @@ apps:
     command: usr/bin/autotools-cross-compile-example
 
 parts:
-  hello:
+  cross-compilation-part:
     plugin: autotools
     source: .
     autotools-configure-parameters:
