@@ -28,6 +28,6 @@ parts:
       - --host=${SNAPCRAFT_ARCH_TRIPLET}
     build-packages:
       - on amd64 to armhf:
-        - gcc-arm-linux-gnueabihf:amd64
-        - libc6-dev-armhf-cross:amd64
-        - libc6-armhf-cross:amd64
+        - gcc-arm-linux-gnueabihf
+        - libc6-dev-armhf-cross
+        - libc6-armhf-cross
