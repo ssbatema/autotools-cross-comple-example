@@ -14,6 +14,10 @@ architectures:
   - build-on: amd64
     build-for: armhf
 
+lint:
+  ignore:
+    - library
+
 apps:
   # Using the name of the snap as the key name allows the program to be invoked by its name.
   autotools-cross-compile-example:
