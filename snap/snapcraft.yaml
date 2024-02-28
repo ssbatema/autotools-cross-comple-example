@@ -12,7 +12,7 @@ confinement: strict
 # Only specify cross-compilation from one architecture to another.
 architectures:
   - build-on: amd64
-    build-for: armhf
+    build-for: arm64
 
 lint:
   ignore:
@@ -31,7 +31,8 @@ parts:
       - --prefix=/usr
       - --host=${SNAPCRAFT_ARCH_TRIPLET}
     build-packages:
-      - on amd64 to armhf:
-        - gcc-arm-linux-gnueabihf
-        - libc6-dev-armhf-cross
-        - libc6-armhf-cross
+      - on amd64 to arm64:
+        - gcc-aarch64-linux-gnu 
+        - binutils-aarch64-linux-gnu
+        - libc6-dev-arm64-cross
+#        - libc6-arm64-cross
